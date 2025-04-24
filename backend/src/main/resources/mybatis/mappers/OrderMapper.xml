@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.Order.DAO.OrderDAO">
+
+<!-- 1. 주문한 메뉴 입력하기  -->
+    <insert id="OrderMenu" parameterType="list">
+        INSERT INTO ORDER_HISTORY (
+        O_NAME,
+        O_AMOUNT,
+        O_NICKNAME,
+        O_DATE
+        )
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.oName},
+            #{item.oAmount},
+            #{item.oNickname},
+            NOW()
+            )
+        </foreach>
+    </insert>
+
+<!-- 2. 주문한 메뉴 불러오기 -->
+    <select id="loadTodayOrders" resultType="com.example.backend.Order.VO.OrderVO">
+        SELECT
+        O_ID AS oId,
+        O_NAME AS oName,
+        O_AMOUNT AS oAmount,
+        O_NICKNAME AS oNickname,
+        O_DATE AS oDate
+        FROM ORDER_HISTORY
+        WHERE DATE(O_DATE) = CURDATE()
+        ORDER BY O_ID DESC
+    </select>
+</mapper>

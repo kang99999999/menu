@@ -1,0 +1,59 @@
+body{
+    border:1px solid black;
+    width:1200px ;
+    height:800px ;
+}
+
+/* 네온싸인효과 */
+.neon{
+    color: #fff;
+    text-shadow: 
+        0 0 7px #fff, 
+        0 0 10px #fff, 
+        0 0 21px #fff, 
+        0 0 42px #0fa, 
+        0 0 82px #0fa, 
+        0 0 92px #0fa, 
+        0 0 102px #0fa, 
+        0 0 151px #0fa;
+    animation: flicker 2s infinite ease-in-out;
+    font-Family:'PTSerif';
+    font-Size:35pt; 
+    margin-left: 930px;
+    margin-Top: -50px;
+    text-Align: center;
+}
+
+/* 깜빡이는 효과 */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+    0 0 4px #fff, 
+    0 0 11px #fff, 
+    0 0 19px #fff, 
+    0 0 40px #0fa, 
+    0 0 80px #0fa, 
+    0 0 90px #0fa, 
+    0 0 100px #0fa, 
+    0 0 150px #0fa;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+/* 폰트 적용 */
+@font-face {
+  font-family: 'Diphylleia';
+  src: url("../font/Diphylleia.ttf");
+}
+
+@font-face {
+  font-family: 'PTSerif';
+  src: url("../font/PTSerif.ttf");
+}
+
+@font-face {
+  font-family: 'Orbit';
+  src: url("../font/Orbit.ttf");
+}

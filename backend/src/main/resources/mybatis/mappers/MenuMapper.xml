@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.Menu.DAO.MenuDAO">
+
+    <!-- 1. 전체 메뉴 조회하기 -->
+    <select id="loadMenu" resultType="com.example.backend.Menu.VO.MenuVO">
+        SELECT
+        M_ID AS mId,
+        M_NAME AS mName,
+        M_TIME AS mTime,
+        M_INTRODUCE AS mIntroduce,
+        M_CATEGORY AS mCategory,
+        M_POSSIBLE AS mPossible,
+        M_PHOTO AS mPhoto
+        FROM MENUS
+        ORDER BY M_ID
+    </select>
+
+    <!-- 2. 카테고리별 메뉴 불러오기 -->
+    <select id="loadMenuByCategory" resultType="com.example.backend.Menu.VO.MenuVO">
+        SELECT
+        M_ID AS mId,
+        M_NAME AS mName,
+        M_TIME AS mTime,
+        M_INTRODUCE AS mIntroduce,
+        M_CATEGORY AS mCategory,
+        M_POSSIBLE AS mPossible,
+        M_PHOTO AS mPhoto
+        FROM MENUS
+        WHERE M_CATEGORY = #{category}
+        ORDER BY M_ID
+    </select>
+
+</mapper>
