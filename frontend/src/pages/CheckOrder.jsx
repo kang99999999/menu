@@ -24,7 +24,7 @@ function CheckOrder(){
         <h1>주문내역 확인</h1>
         {getMenus.map((menu)=>(
             <div key={menu.mId} className="checkMenu">
-                <span className="menus">{menu.m어쩌구</span>
+                <span className="menus">{menu.m</span>
                 <span className="menus"></span>
                 
             </div>
